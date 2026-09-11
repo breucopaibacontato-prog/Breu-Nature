@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Breu Nature — produtos naturais inspirados na Amazônia." />
+  <title>Breu Nature | Produtos Naturais da Amazônia</title>
+
+  <style>
+    :root{
+      --verde-escuro:#0f2d22;
+      --verde:#1f5a43;
+      --verde-claro:#dfeee6;
+      --creme:#f6f1e7;
+      --dourado:#c5a46d;
+      --texto:#1e2a24;
+      --branco:#ffffff;
+      --sombra:0 14px 40px rgba(15,45,34,.12);
+      --raio:22px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--creme);
+      color:var(--texto);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(1120px, 92%);
+      margin:auto;
+    }
+
+    /* MENU */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(15,45,34,.94);
+      backdrop-filter:blur(8px);
+      color:white;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    nav{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:1.25rem;
+      font-weight:700;
+      letter-spacing:.5px;
+    }
+
+    .logo-mark{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--dourado), #ead4ab);
+      color:var(--verde-escuro);
+      font-size:1.25rem;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      font-size:.95rem;
+    }
+
+    .nav-links a{
+      opacity:.9;
+    }
+
+    .nav-links a:hover{
+      opacity:1;
+      color:#f1d9ae;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:82vh;
+      display:grid;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(197,164,109,.23), transparent 27%),
+        radial-gradient(circle at 10% 90%, rgba(255,255,255,.09), transparent 25%),
+        linear-gradient(135deg, #0b241b, #173d2e 55%, #235b43);
+      color:white;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.08);
+      right:-120px;
+      bottom:-180px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      align-items:center;
+      gap:56px;
+      padding:78px 0;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      color:#efd8ae;
+      text-transform:uppercase;
+      letter-spacing:2.4px;
+      font-size:.78rem;
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    h1{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:clamp(3.2rem, 8vw, 6.8rem);
+      line-height:.92;
+      font-weight:500;
+      letter-spacing:-2px;
+      margin-bottom:22px;
+    }
+
+    .hero p{
+      max-width:620px;
+      font-size:1.08rem;
+      color:rgba(255,255,255,.84);
+      margin-bottom:30px;
+    }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 22px;
+      border-radius:999px;
+      font-weight:700;
+      transition:.2s ease;
+      border:1px solid transparent;
+    }
+
+    .btn-primary{
+      background:var(--dourado);
+      color:var(--verde-escuro);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.06);
+    }
+
+    .btn-outline{
+      color:white;
+      border-color:rgba(255,255,255,.35);
+    }
+
+    .btn-outline:hover{
+      background:rgba(255,255,255,.08);
+    }
+
+    .hero-card{
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:32px;
+      padding:34px;
+      box-shadow:0 20px 60px rgba(0,0,0,.20);
+      backdrop-filter:blur(10px);
+    }
+
+    .hero-card .leaf{
+      font-size:5rem;
+      margin-bottom:14px;
+    }
+
+    .hero-card h3{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:2rem;
+      margin-bottom:8px;
+    }
+
+    .hero-card p{
+      margin:0;
+      font-size:.98rem;
+    }
+
+    /* SEÇÕES */
+    section{
+      padding:86px 0;
+    }
+
+    .section-head{
+      max-width:720px;
+      margin-bottom:38px;
+    }
+
+    .section-head h2{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:clamp(2rem, 5vw, 3.4rem);
+      color:var(--verde-escuro);
+      line-height:1.05;
+      margin-bottom:14px;
+    }
+
+    .section-head p{
+      color:#52625a;
+    }
+
+    /* PRODUTOS */
+    .products{
+      background:#fffdf8;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:white;
+      border-radius:var(--raio);
+      padding:26px;
+      box-shadow:var(--sombra);
+      border:1px solid #eee7da;
+      transition:.2s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .icon{
+      width:58px;
+      height:58px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:var(--verde-claro);
+      font-size:1.8rem;
+      margin-bottom:18px;
+    }
+
+    .card h3{
+      margin-bottom:8px;
+      color:var(--verde-escuro);
+    }
+
+    .tag{
+      display:inline-block;
+      margin-top:16px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#f3ecdf;
+      color:#715a35;
+      font-size:.78rem;
+      font-weight:700;
+    }
+
+    /* SOBRE */
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:44px;
+      align-items:center;
+    }
+
+    .nature-panel{
+      min-height:420px;
+      border-radius:32px;
+      padding:34px;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      box-shadow:var(--sombra);
+      background:
+        linear-gradient(rgba(11,36,27,.2), rgba(11,36,27,.82)),
+        radial-gradient(circle at 30% 30%, #5d8a67, transparent 30%),
+        linear-gradient(135deg, #214e39, #0d2a20);
+    }
+
+    .nature-panel span{
+      font-size:5rem;
+      margin-bottom:auto;
+    }
+
+    .nature-panel h3{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:2.2rem;
+      margin-bottom:8px;
+    }
+
+    .about-copy h2{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:clamp(2.2rem, 5vw, 3.6rem);
+      color:var(--verde-escuro);
+      margin-bottom:18px;
+    }
+
+    .about-copy p{
+      margin-bottom:16px;
+      color:#52625a;
+    }
+
+    /* VALORES */
+    .values{
+      background:var(--verde-escuro);
+      color:white;
+    }
+
+    .values .section-head h2{
+      color:white;
+    }
+
+    .values .section-head p{
+      color:rgba(255,255,255,.7);
+    }
+
+    .value-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .value{
+      padding:28px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+    }
+
+    .value strong{
+      display:block;
+      color:#efd8ae;
+      margin-bottom:8px;
+    }
+
+    /* CONTATO */
+    .contact-box{
+      background:white;
+      border-radius:32px;
+      padding:46px;
+      box-shadow:var(--sombra);
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:32px;
+      align-items:center;
+    }
+
+    .contact-box h2{
+      font-family:Georgia, 'Times New Roman', serif;
+      color:var(--verde-escuro);
+      font-size:clamp(2rem, 5vw, 3rem);
+      margin-bottom:10px;
+    }
+
+    .contact-box p{
+      color:#52625a;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#091b15;
+      color:rgba(255,255,255,.72);
+      padding:28px 0;
+      text-align:center;
+      font-size:.9rem;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width:900px){
+      .hero-grid,
+      .about-grid,
+      .contact-box{
+        grid-template-columns:1fr;
+      }
+
+      .cards{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .value-grid{
+        grid-template-columns:1fr;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+    }
+
+    @media (max-width:560px){
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      section{
+        padding:66px 0;
+      }
+
+      .hero-grid{
+        padding:64px 0;
+      }
+
+      .hero-card,
+      .contact-box{
+        padding:28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#inicio">
+          <span class="logo-mark">🌿</span>
+          <span>Breu Nature</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#produtos">Produtos</a>
+          <a href="#sobre">Sobre nós</a>
+          <a href="#valores">Valores</a>
+          <a href="#contato">Contato</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="eyebrow">Produtos naturais inspirados na Amazônia</span>
+          <h1>Breu<br>Nature</h1>
+
+          <p>
+            Uma marca criada para aproximar natureza, inovação e identidade amazônica
+            por meio de cosméticos, alimentos e produtos de cuidado pessoal.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="#produtos">Conheça o projeto</a>
+            <a class="btn btn-outline" href="#sobre">Nossa proposta</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="leaf">🍃</div>
+          <h3>O natural faz parte de você.</h3>
+          <p>
+            Um protótipo de marca que valoriza ingredientes naturais, biodiversidade
+            amazônica e novas possibilidades de produtos para o cotidiano.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="products" id="produtos">
+      <div class="container">
+
+        <div class="section-head">
+          <span class="eyebrow" style="color:#8a6b3d">Conceitos de produtos</span>
+          <h2>Natureza presente em diferentes momentos do dia.</h2>
+          <p>
+            Estes produtos fazem parte do conceito inicial da Breu Nature e representam
+            caminhos que a marca poderá explorar no futuro.
+          </p>
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="icon">💧</div>
+            <h3>Óleo de copaíba</h3>
+            <p>
+              Um dos destaques da identidade da marca, inspirado em um dos recursos
+              naturais conhecidos da Amazônia.
+            </p>
+            <span class="tag">Produto conceito</span>
+          </article>
+
+          <article class="card">
+            <div class="icon">🧼</div>
+            <h3>Cosméticos naturais</h3>
+            <p>
+              Linha conceitual de sabonetes, cremes e itens de cuidado pessoal com
+              inspiração em ingredientes naturais.
+            </p>
+            <span class="tag">Produto conceito</span>
+          </article>
+
+          <article class="card">
+            <div class="icon">🥥</div>
+            <h3>Alimentos naturais</h3>
+            <p>
+              Possibilidade de produtos alimentícios inspirados em matérias-primas e
+              sabores associados à região amazônica.
+            </p>
+            <span class="tag">Produto conceito</span>
+          </article>
+
+          <article class="card">
+            <div class="icon">🌱</div>
+            <h3>Cuidados pessoais</h3>
+            <p>
+              Produtos pensados para o cotidiano, conectando bem-estar, praticidade e
+              uma identidade visual ligada à natureza.
+            </p>
+            <span class="tag">Produto conceito</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container about-grid">
+
+        <div class="nature-panel">
+          <span>🌳</span>
+          <h3>Da Amazônia para novas ideias.</h3>
+          <p>
+            A proposta nasce da vontade de valorizar a riqueza natural da região de
+            forma moderna, responsável e conectada ao consumidor.
+          </p>
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow" style="color:#8a6b3d">Quem somos</span>
+          <h2>Uma marca em construção.</h2>
+
+          <p>
+            A <strong>Breu Nature</strong> é um projeto voltado ao desenvolvimento e à
+            apresentação de produtos naturais inspirados na biodiversidade amazônica.
+          </p>
+
+          <p>
+            A proposta reúne diferentes categorias, como cosméticos, alimentos e
+            cuidados pessoais, buscando criar uma marca com identidade regional,
+            linguagem atual e potencial de crescimento.
+          </p>
+
+          <p>
+            Neste momento, a Breu Nature está em fase de protótipo e validação de ideia.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="values" id="valores">
+      <div class="container">
+
+        <div class="section-head">
+          <span class="eyebrow">Nossa visão</span>
+          <h2>O que queremos representar.</h2>
+          <p>
+            Estes são os princípios que orientam o conceito da Breu Nature.
+          </p>
+        </div>
+
+        <div class="value-grid">
+
+          <div class="value">
+            <strong>01 — Identidade amazônica</strong>
+            <p>
+              Valorizar a origem, a cultura e a biodiversidade da região em uma marca
+              contemporânea.
+            </p>
+          </div>
+
+          <div class="value">
+            <strong>02 — Uso responsável</strong>
+            <p>
+              Buscar caminhos que respeitem os recursos naturais e incentivem escolhas
+              mais conscientes.
+            </p>
+          </div>
+
+          <div class="value">
+            <strong>03 — Inovação</strong>
+            <p>
+              Transformar referências da natureza em ideias de produtos, experiências
+              e soluções para o dia a dia.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+
+        <div class="contact-box">
+          <div>
+            <span class="eyebrow" style="color:#8a6b3d">Contato</span>
+            <h2>Conheça a Breu Nature.</h2>
+            <p>
+              Este site apresenta o protótipo inicial da marca. Para contato sobre o
+              projeto, fale conosco por e-mail.
+            </p>
+          </div>
+
+          <a class="btn btn-primary"
+             href="mailto:breucopaiba.contato@gmail.com">
+            Enviar e-mail
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Breu Nature — Protótipo de projeto.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
