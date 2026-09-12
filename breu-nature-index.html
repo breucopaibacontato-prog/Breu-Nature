@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Breu Nature — creme de copaíba inspirado na Amazônia.">
+  <title>Breu Nature | Creme de Copaíba</title>
+  <style>
+    :root{
+      --verde-escuro:#0f2b21;
+      --verde:#295c47;
+      --creme:#f4ecdf;
+      --dourado:#c6a46c;
+      --texto:#243028;
+      --sombra:0 18px 50px rgba(15,43,33,.13);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--texto);background:#fbf8f2;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:100;background:rgba(15,43,33,.96);backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+    nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.22rem}
+    .brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--dourado),#edd5aa);color:var(--verde-escuro)}
+    .nav-links{display:flex;gap:24px;font-size:.95rem}
+    .nav-links a{opacity:.86}
+    .nav-links a:hover{opacity:1;color:#efd8ae}
+    .hero{min-height:86vh;display:grid;align-items:center;color:#fff;background:radial-gradient(circle at 80% 20%,rgba(198,164,108,.28),transparent 24%),linear-gradient(135deg,#0b2119 0%,#17392b 50%,#285d46 100%)}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;padding:82px 0}
+    .eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:2.3px;font-size:.78rem;font-weight:700;color:#efd8ae;margin-bottom:16px}
+    h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(3.3rem,8vw,6.7rem);line-height:.93;letter-spacing:-2px;font-weight:500;margin-bottom:22px}
+    .hero-text{max-width:620px;color:rgba(255,255,255,.84);font-size:1.08rem;margin-bottom:30px}
+    .buttons{display:flex;flex-wrap:wrap;gap:13px}
+    .btn{min-height:48px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;font-weight:700;transition:.2s;border:1px solid transparent}
+    .btn-primary{background:var(--dourado);color:var(--verde-escuro)}
+    .btn-outline{color:#fff;border-color:rgba(255,255,255,.34)}
+    .product-visual{min-height:470px;display:flex;align-items:center;justify-content:center}
+    .cream-jar{width:290px;height:215px;border-radius:34px 34px 60px 60px;background:linear-gradient(180deg,#f4ead7,#d7c4a7);box-shadow:0 30px 70px rgba(0,0,0,.30);position:relative;display:flex;align-items:center;justify-content:center;color:var(--verde-escuro);text-align:center;padding:30px}
+    .cream-jar:before{content:"";position:absolute;width:308px;height:55px;border-radius:18px;top:-36px;background:linear-gradient(180deg,#183b2d,#0c241b)}
+    .cream-jar:after{content:"🌿";position:absolute;font-size:4.7rem;right:-44px;bottom:-22px;transform:rotate(-18deg)}
+    .jar-label strong{display:block;font-family:Georgia,'Times New Roman',serif;font-size:2rem;margin-bottom:4px}
+    .jar-label span{font-size:.85rem;letter-spacing:1.6px;text-transform:uppercase}
+    section{padding:88px 0}
+    .section-head{max-width:760px;margin-bottom:40px}
+    .section-head h2,.product-info h2,.about-copy h2,.contact-box h2{font-family:Georgia,'Times New Roman',serif;color:var(--verde-escuro);line-height:1.05}
+    .section-head h2{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:14px}
+    .section-head p,.product-info p,.about-copy p,.contact-box p{color:#58655f}
+    .product-section{background:#fffdfa}
+    .product-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
+    .mockup-card{background:linear-gradient(160deg,#efe4d3,#d9c3a5);min-height:430px;border-radius:34px;box-shadow:var(--sombra);display:grid;place-items:center}
+    .product-info h2{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:20px}
+    .product-info p{margin-bottom:18px}
+    .highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+    .highlight{background:var(--creme);border-radius:18px;padding:18px;border:1px solid #eadfcf}
+    .highlight strong{display:block;color:var(--verde-escuro);margin-bottom:4px}
+    .benefits{background:var(--verde-escuro);color:#fff}
+    .benefits .section-head h2{color:#fff}
+    .benefits .section-head p{color:rgba(255,255,255,.72)}
+    .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .benefit{padding:28px;border-radius:22px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05)}
+    .benefit .icon{font-size:2rem;margin-bottom:14px}
+    .benefit strong{display:block;color:#efd8ae;margin-bottom:8px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .about-panel{min-height:430px;border-radius:34px;padding:36px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(rgba(12,36,28,.15),rgba(12,36,28,.86)),radial-gradient(circle at 25% 20%,#61836d,transparent 32%),linear-gradient(135deg,#204d3a,#0d271e);box-shadow:var(--sombra)}
+    .about-panel span{font-size:5rem;margin-bottom:auto}
+    .about-panel h3{font-family:Georgia,'Times New Roman',serif;font-size:2.15rem;margin-bottom:8px}
+    .about-copy h2{font-size:clamp(2.3rem,5vw,3.7rem);margin-bottom:18px}
+    .about-copy p{margin-bottom:16px}
+    .contact{background:#f0e8db}
+    .contact-box{background:#fff;border-radius:32px;padding:46px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;box-shadow:var(--sombra)}
+    .contact-box h2{font-size:clamp(2.1rem,5vw,3.1rem);margin-bottom:10px}
+    footer{background:#091b15;color:rgba(255,255,255,.72);text-align:center;padding:28px 0;font-size:.9rem}
+    @media(max-width:900px){
+      .hero-grid,.product-grid,.about-grid,.contact-box{grid-template-columns:1fr}
+      .benefit-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .hero{min-height:auto}
+      .product-visual{min-height:360px}
+    }
+    @media(max-width:560px){
+      section{padding:66px 0}
+      .hero-grid{padding:64px 0}
+      .highlights{grid-template-columns:1fr}
+      .cream-jar{width:245px;height:185px}
+      .cream-jar:before{width:262px}
+      .contact-box{padding:28px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#inicio"><span class="brand-mark">🌿</span><span>Breu Nature</span></a>
+      <div class="nav-links">
+        <a href="#produto">O creme</a>
+        <a href="#beneficios">Diferenciais</a>
+        <a href="#sobre">Sobre nós</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Cuidado natural inspirado na Amazônia</span>
+        <h1>Breu<br>Nature</h1>
+        <p class="hero-text">Um creme desenvolvido como conceito de cuidado pessoal, inspirado na copaíba e na riqueza natural da Amazônia.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#produto">Conheça o creme</a>
+          <a class="btn btn-outline" href="#sobre">Conheça a marca</a>
+        </div>
+      </div>
+      <div class="product-visual">
+        <div class="cream-jar">
+          <div class="jar-label">
+            <strong>Breu Nature</strong>
+            <span>Creme de Copaíba</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-section" id="produto">
+    <div class="container product-grid">
+      <div class="mockup-card">
+        <div class="cream-jar">
+          <div class="jar-label">
+            <strong>Breu Nature</strong>
+            <span>Creme de Copaíba</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <span class="eyebrow" style="color:#8a6b3d">Nosso produto</span>
+        <h2>Creme de Copaíba</h2>
+        <p>O produto principal da Breu Nature é um creme de cuidado pessoal inspirado na copaíba, com uma proposta que une identidade amazônica, bem-estar e apresentação moderna.</p>
+        <p>O projeto busca transformar um elemento marcante da biodiversidade regional em um produto com identidade própria, pensado para o uso cotidiano.</p>
+
+        <div class="highlights">
+          <div class="highlight"><strong>🌿 Identidade amazônica</strong>Inspirado em elementos naturais e na biodiversidade da região.</div>
+          <div class="highlight"><strong>🧴 Cuidado pessoal</strong>Pensado como produto cosmético para integrar a rotina de autocuidado.</div>
+          <div class="highlight"><strong>✨ Experiência de marca</strong>Visual sofisticado, natural e alinhado ao conceito da Breu Nature.</div>
+          <div class="highlight"><strong>💡 Produto em desenvolvimento</strong>Apresentado atualmente como protótipo e conceito de negócio.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits" id="beneficios">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Nossa proposta</span>
+        <h2>Um produto. Uma identidade forte.</h2>
+        <p>A Breu Nature concentra sua proposta em um único produto para construir uma marca mais clara, reconhecível e especializada.</p>
+      </div>
+
+      <div class="benefit-grid">
+        <div class="benefit"><div class="icon">🌱</div><strong>Origem e identidade</strong><p>A marca busca valorizar referências da Amazônia em sua comunicação, embalagem e conceito.</p></div>
+        <div class="benefit"><div class="icon">🤲</div><strong>Cuidado no dia a dia</strong><p>O creme é pensado para fazer parte de uma rotina de cuidado pessoal com uma proposta simples e agradável.</p></div>
+        <div class="benefit"><div class="icon">♻️</div><strong>Visão responsável</strong><p>O projeto considera sustentabilidade, uso consciente de recursos e valorização da biodiversidade como princípios da marca.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container about-grid">
+      <div class="about-panel">
+        <span>🌳</span>
+        <h3>Da Amazônia para uma nova experiência de cuidado.</h3>
+        <p>A Breu Nature nasce da ideia de unir natureza, identidade regional e desenvolvimento de produto em uma marca única.</p>
+      </div>
+
+      <div class="about-copy">
+        <span class="eyebrow" style="color:#8a6b3d">Quem somos</span>
+        <h2>Breu Nature</h2>
+        <p>A <strong>Breu Nature</strong> é uma marca em desenvolvimento focada na criação de um <strong>creme de copaíba</strong> com inspiração amazônica.</p>
+        <p>Nossa proposta é construir uma identidade forte em torno de um único produto, destacando qualidade visual, conexão com a natureza e valorização de elementos presentes na região.</p>
+        <p>Atualmente, o projeto está em fase de protótipo e apresentação.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <span class="eyebrow" style="color:#8a6b3d">Contato</span>
+          <h2>Conheça a Breu Nature.</h2>
+          <p>Este site apresenta o protótipo da marca e do Creme de Copaíba Breu Nature. Para informações sobre o projeto, entre em contato por e-mail.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:breucopaiba.contato@gmail.com">Enviar e-mail</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="container">© <span id="year"></span> Breu Nature — Protótipo de projeto.</div></footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
